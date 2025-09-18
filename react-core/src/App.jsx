@@ -1,4 +1,6 @@
 import "./App.css";
+import Counter from "./Counter";
+import Batsman from "./Batsman";
 
 function App() {
   function handleClickMe() {
@@ -15,6 +17,10 @@ const add5 = (num) => {
   return (
     <>
       <h1>King Shohan</h1>
+      <Batsman></Batsman>
+
+  <Counter></Counter>
+
       <button onClick={handleClickMe}>Click me</button>
       <button
         onClick={function clickedMe2() {
