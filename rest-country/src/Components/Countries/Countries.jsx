@@ -5,27 +5,38 @@ const Countries = ({ countriesPromise }) => {
   const [visitedCountries, setVisitedCountries] = useState([]);
 
   const handleVisitedCountries = (country) => {
-    console.log("Clicked", country);
+    // console.log("Clicked", country);
+    const newVisitedCountries = [...visitedCountries, country];
+    // console.log(newVisitedCountries);
+
+    setVisitedCountries(newVisitedCountries);
   };
 
   const countriesData = use(countriesPromise);
   const mainElements = countriesData.countries;
 
   return (
-    <div>
-      <h1>In the country</h1>
-      <h3>Total Country Visited: </h3>
-      <h3>All Country: {mainElements.length}</h3>
-      <div className="countries">
-        {mainElements.map((country) => (
-          <Country
-            key={country?.ccn3.ccn3}
-            country={country}
-            handleVisitedCountries={handleVisitedCountries}
-          ></Country>
-        ))}
+    <>
+      <div>
+        <h1>In the country</h1>
+        <h3>Total Country Visited: {visitedCountries.length}</h3>
+        <ol>
+          {visitedCountries.map((country) => (
+            <li key={country?.ccn3.ccn3}>{country.name.common}</li>
+          ))}
+        </ol>
+        <h3>All Country: {mainElements.length}</h3>
+        <div className="countries">
+          {mainElements.map((country) => (
+            <Country
+              key={country?.ccn3.ccn3}
+              country={country}
+              handleVisitedCountries={handleVisitedCountries}
+            ></Country>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
