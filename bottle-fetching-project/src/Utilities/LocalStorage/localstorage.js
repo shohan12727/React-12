@@ -4,7 +4,7 @@
 const getCartFromLocalStorage = () => {
   const storedCartString = localStorage.getItem("cart");
   if (storedCartString) {
-    const storedCart = JSON.parse(storedCartString);
+    const storedCart = JSON.parse(storedCartString); //object holo
     return storedCart;
   } else {
     return [];

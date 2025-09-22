@@ -35,7 +35,7 @@ const Bottles = ({ bottlePromise }) => {
 
   const handleRemoveFromCart = (id) => {
     console.log("remove item from the cart", id);
-    const remainingCart = cart.filter((bottle) => bottle.id !== id);
+    const remainingCart = cart.filter((bottle) => bottle.id !== id); // oita bade baki gula amake dibe 
     setCart(remainingCart);
     removeFromCart(id)
   };
