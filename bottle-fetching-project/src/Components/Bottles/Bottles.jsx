@@ -4,24 +4,26 @@ import "./Bottles.css";
 import {
   addToStoredCart,
   getStoreCart,
+  removeFromCart,
 } from "../../Utilities/LocalStorage/localstorage";
+import Cart from "../Cart/Cart";
 const Bottles = ({ bottlePromise }) => {
   const bottles = use(bottlePromise);
   // console.log(bottles);
-  
+
   // useEffect
   useEffect(() => {
     const storedCartIDs = getStoreCart();
-    
-      const storedCart = [];
+
+    const storedCart = [];
     for (const id of storedCartIDs) {
-      const cartBottle = bottles.find((bottle) => bottle.id == id);      
+      const cartBottle = bottles.find((bottle) => bottle.id == id);
       if (cartBottle) {
         storedCart.push(cartBottle);
-      }  
+      }
     }
     setCart(storedCart);
-  }, [bottles]);    
+  }, [bottles]);
 
   const [cart, setCart] = useState([]);
   const handleAddToCart = (bottle) => {
@@ -30,11 +32,19 @@ const Bottles = ({ bottlePromise }) => {
     setCart(newCart);
     addToStoredCart(bottle.id);
   };
-  //  console.log(cart);
+
+  const handleRemoveFromCart = (id) => {
+    console.log("remove item from the cart", id);
+    const remainingCart = cart.filter((bottle) => bottle.id !== id);
+    setCart(remainingCart);
+    removeFromCart(id)
+  };
+
   return (
     <div>
       <h3>Bottles: {bottles.length}</h3>
       <p>Added to the card: {cart.length}</p>
+      <Cart handleRemoveFromCart={handleRemoveFromCart} cart={cart}></Cart>
       {/* <img src={img} alt="" /> */}
       <div className="bottle-container">
         {bottles.map((bottle) => (
