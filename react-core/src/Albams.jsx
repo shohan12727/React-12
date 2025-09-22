@@ -10,7 +10,7 @@ export default function Albams () {
         .then( data => setAlbams(data))
     }
         
-        ,[])
+        ,[])      
 
     return (
         <div className="card">
