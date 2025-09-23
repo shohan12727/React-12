@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "name": "Arif Hossain",
+    "nationality": "Bangladesh",
+    "rating": 87,
+    "batting_position": "Opener",
+    "image": "https://i.ibb.co.com/mFC9jKLD/WIN-20250825-03-49-10-Pro.jpg",
+    "price": "$1,200,000",
+    "player_type": "Batter"
+  },
+  {
+    "id": 2,
+    "name": "Rashid Khan",
+    "nationality": "Afghanistan",
+    "rating": 92,
+    "batting_position": "Middle-order",
+    "image": "https://i.ibb.co.com/svTVrKdG/btop.png",
+    "price": "$2,500,000",
+    "player_type": "All-rounder"
+  },
+  {
+    "id": 3,
+    "name": "Shakib Al Hasan",
+    "nationality": "Bangladesh",
+    "rating": 95,
+    "batting_position": "All-rounder",
+    "image": "https://i.ibb.co.com/yBx2F18F/image.png",
+    "price": "$3,000,000",
+    "player_type": "All-rounder"
+  },
+  {
+    "id": 4,
+    "name": "Tamim Iqbal",
+    "nationality": "Bangladesh",
+    "rating": 88,
+    "batting_position": "Opener",
+    "image": "",
+    "price": "$2,000,000",
+    "player_type": "Batter"
+  },
+  {
+    "id": 5,
+    "name": "Mustafizur Rahman",
+    "nationality": "Bangladesh",
+    "rating": 85,
+    "batting_position": "Tailender",
+    "image": "https://i.ibb.co.com/svTVrKdG/btop.png",
+    "price": "$1,500,000",
+    "player_type": "Bowler"
+  },
+  {
+    "id": 6,
+    "name": "Andre Russell",
+    "nationality": "West Indies",
+    "rating": 93,
+    "batting_position": "Middle-order",
+    "image": "https://i.ibb.co.com/848B40gs/Screenshot-2025-09-12-201408.png",
+    "price": "$3,200,000",
+    "player_type": "All-rounder"
+  },
+  {
+    "id": 7,
+    "name": "Mushfiqur Rahim",
+    "nationality": "Bangladesh",
+    "rating": 86,
+    "batting_position": "Middle-order",
+    "image": "https://i.ibb.co.com/99GVDsh8/image.png",
+    "price": "$1,800,000",
+    "player_type": "Batter"
+  },
+  {
+    "id": 8,
+    "name": "Sunil Narine",
+    "nationality": "West Indies",
+    "rating": 89,
+    "batting_position": "All-rounder",
+    "image": "https://i.ibb.co.com/jPSPj17b/image.png",
+    "price": "$2,800,000",
+    "player_type": "Bowler"
+  },
+  {
+    "id": 9,
+    "name": "Mahmudullah",
+    "nationality": "Bangladesh",
+    "rating": 84,
+    "batting_position": "Middle-order",
+    "image": "https://i.ibb.co.com/svTVrKdG/btop.png",
+    "price": "$1,700,000",
+    "player_type": "All-rounder"
+  },
+  {
+    "id": 10,
+    "name": "Jason Holder",
+    "nationality": "West Indies",
+    "rating": 91,
+    "batting_position": "All-rounder",
+    "image": "https://i.ibb.co.com/mFC9jKLD/WIN-20250825-03-49-10-Pro.jpg",
+    "price": "$2,900,000",
+    "player_type": "All-rounder"
+  }
+]
