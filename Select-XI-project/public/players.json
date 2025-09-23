@@ -35,7 +35,7 @@
     "nationality": "Bangladesh",
     "rating": 88,
     "batting_position": "Opener",
-    "image": "",
+    "image": "https://i.ibb.co.com/99GVDsh8/image.png",
     "price": "$2,000,000",
     "player_type": "Batter"
   },
@@ -45,7 +45,7 @@
     "nationality": "Bangladesh",
     "rating": 85,
     "batting_position": "Tailender",
-    "image": "https://i.ibb.co.com/svTVrKdG/btop.png",
+    "image": "https://i.ibb.co.com/mFC9jKLD/WIN-20250825-03-49-10-Pro.jpg",
     "price": "$1,500,000",
     "player_type": "Bowler"
   },
@@ -95,7 +95,7 @@
     "nationality": "West Indies",
     "rating": 91,
     "batting_position": "All-rounder",
-    "image": "https://i.ibb.co.com/mFC9jKLD/WIN-20250825-03-49-10-Pro.jpg",
+    "image": "https://i.ibb.co.com/848B40gs/Screenshot-2025-09-12-201408.png",
     "price": "$2,900,000",
     "player_type": "All-rounder"
   }
