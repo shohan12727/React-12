@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { GrUserManager } from "react-icons/gr";
 import { FaFlag } from "react-icons/fa";
-const Player = ({ player, setAvailableBalance, availableBalance }) => {
+import { toast } from "react-toastify";
+const Player = ({ player, setAvailableBalance, availableBalance, setPurchesedPlayer, purchesedPlayer }) => {
   //   console.log(player);
   const {
     image,
@@ -13,6 +14,22 @@ const Player = ({ player, setAvailableBalance, availableBalance }) => {
     player_type,
   } = player;
   const [selected, setSelected] = useState(false);
+
+  const handleSelected = () => {
+    const playerPrice = parseInt(price.split("$").join("").split(",").join(""));
+    if(availableBalance < playerPrice) {
+        toast("Not enough banalce");
+        return;
+    }
+    if(purchesedPlayer.length === 6){
+      toast("Already 6 player has been selected")
+      return
+    }
+    setSelected(true);
+    setAvailableBalance(availableBalance - playerPrice);
+    setPurchesedPlayer([...purchesedPlayer, player])
+  };
+
   return (
     <div className="border border-gray-400 rounded-xl p-3">
       <div className="overflow-hidden">
@@ -42,10 +59,7 @@ const Player = ({ player, setAvailableBalance, availableBalance }) => {
             <p className="font-bold">Price: {price}</p>
             <button
               disabled={selected}
-              onClick={() => {
-                setSelected(true);
-                setAvailableBalance(availableBalance);
-              }}
+              onClick={handleSelected}
               className="btn"
             >
               {selected === true ? "Selected" : "Choose Player"}
