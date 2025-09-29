@@ -4,6 +4,8 @@ import DaisyNav from "./Components/DaisyNav/DaisyNav";
 import Navbar from "./Components/Navbar/Navbar";
 import PricingOption from "./Components/PricingOption/PricingOption";
 import ResultChart from "./Components/ResultChart/ResultChart";
+import axios from "axios";
+import MarkCharts from "./Components/MarksCharts/MarkCharts";
 
 const pricingFetch = async () => {
   const promise = await fetch("/pricingData.json");
@@ -11,6 +13,9 @@ const pricingFetch = async () => {
 };
 
 const pricingPromise = pricingFetch();
+
+const marksPromise = axios.get("marksData.json");
+
 function App() {
   // const pricingPromise = fetch('/pricingData.json').then(res => res.json())
   // console.log(pricingPromise);
@@ -32,6 +37,14 @@ function App() {
           <PricingOption pricingPromise={pricingPromise}></PricingOption>
         </Suspense>
         <ResultChart></ResultChart>
+
+        <Suspense
+          fallback={
+            <div className="flex justify-center">Loaging...........</div>
+          }
+        >
+          <MarkCharts marksPromise={marksPromise}></MarkCharts>
+        </Suspense>
       </main>
     </>
   );
