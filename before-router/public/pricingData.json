@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Basic Plan",
+    "price": 9.99,
+    "description": "A starter plan with essential features for individuals.",
+    "features": [
+      "Access to core services",
+      "Single device support",
+      "Standard customer support"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Premium Plan",
+    "most_popular": true,
+    "price": 19.99,
+    "description": "An advanced plan with extra benefits for power users.",
+    "features": [
+      "Everything in Basic Plan",
+      "Multi-device access",
+      "Priority customer support",
+      "Extra storage space"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Family Plan",
+    "price": 29.99,
+    "description": "A family-friendly plan with features for multiple members.",
+    "features": [
+      "Everything in Premium Plan",
+      "Up to 5 user accounts",
+      "Parental controls",
+      "Shared storage"
+    ]
+  }
+]
