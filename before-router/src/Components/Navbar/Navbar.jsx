@@ -11,6 +11,10 @@ const Navbar = () => {
     { id: 5, name: "Blog", path: "/blog" },
   ];
 
+  const links = navigationData.map((route, index) => (
+    <Link key={index} route={route}></Link>
+  ));
+
   const [toggleMenu, setToggleMenu] = useState(false);
 
   const handleMenu = () => {
@@ -18,24 +22,24 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-between mx-10">
-      <div onClick={handleMenu} className="flex gap-4">
-      
-          {toggleMenu ? (
-            <X className="md:hidden"></X>
-          ) : (
-            <TextAlignJustify className="md:hidden"></TextAlignJustify>
-          )}
-    
-
+    <nav className="flex justify-between mx-10 my-5">
+      <span onClick={handleMenu} className="flex">
+        {toggleMenu ? (
+          <X className="md:hidden"></X>
+        ) : (
+          <TextAlignJustify className="md:hidden"></TextAlignJustify>
+        )}
+        <ul
+          className={`md:hidden absolute bg-amber-200 
+          ${toggleMenu ? "top-14 duration-500" : "-top-40 duration-500 "}
+          `}
+        >
+          {links}
+        </ul>
         <h3>Navbar</h3>
-      </div>
+      </span>
 
-      <ul className="flex">
-        {navigationData.map((route) => (
-          <Link route={route}></Link>
-        ))}
-      </ul>
+      <ul className="md:flex hidden">{links}</ul>
 
       {/* <ul className="flex">
         {navigationData.map((route) => (
