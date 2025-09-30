@@ -2,15 +2,19 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
-import React from "react";
-import ReactDOM from "react-dom/client";
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
-
+import Root from "./Components/Root.jsx";
+import Home from "./Components/Home/Home.jsx";
+import Mobiles from "./Components/Mobiles/Mobiles.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <h1>Hello World</h1>,
+    Component: Root,
+    children: [
+      { index: true, Component: Home },
+      { path: "mobiles", Component: Mobiles },
+    ],
   },
   {
     path: "/about",
@@ -23,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "/king",
     element: <h1>I am from king Shohan path</h1>,
+  },
+  {
+    path: "app",
+    Component: App,
   },
 ]);
 

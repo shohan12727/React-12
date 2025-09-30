@@ -5,7 +5,7 @@ function App() {
 
   return (
     <>
-      <h1>Main Page</h1>
+      <h1>I am from app</h1>
     </>
   )
 }
