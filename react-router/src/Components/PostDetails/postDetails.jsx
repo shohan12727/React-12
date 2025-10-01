@@ -9,7 +9,7 @@ const PostDetails = () => {
         <div style={{width: '500px'}}>
             <p><b>Description:</b> {body}</p>
         </div>
-    );
+    );    
 };
 
 export default PostDetails;
