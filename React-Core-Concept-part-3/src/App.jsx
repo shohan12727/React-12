@@ -13,8 +13,8 @@ function App() {
       {/* <h1>Explore React Form</h1> */}
       {/* <SimpleForm></SimpleForm> */}
       {/* <FormAction></FormAction> */}
-      {/* <ControlledFrom></ControlledFrom> */}
-      <UncontrolledForm></UncontrolledForm>
+      <ControlledFrom></ControlledFrom>
+      {/* <UncontrolledForm></UncontrolledForm> */}
  
     </>
   )

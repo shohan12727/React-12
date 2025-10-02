@@ -5,7 +5,7 @@ const UncontrolledForm = () => {
   const passwordRef = useRef("");
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); 
     console.log("submitted");
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
