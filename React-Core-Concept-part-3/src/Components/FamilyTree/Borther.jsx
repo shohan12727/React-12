@@ -6,6 +6,7 @@ const Borther = () => {
 
    const [money, setMoney] = use(MoneyContext);
 
+   
     return (
         <div>
             <h3>Brother</h3>
