@@ -2,7 +2,7 @@ import React from "react";
 
 
 import SelectedPlayer from "./SelectedPlayer";
-const SelectedPlayers = ({ purchesedPlayer, setPurchesedPlayer, removePlayer }) => {
+const SelectedPlayers = ({ purchesedPlayer,  removePlayer }) => {
   console.log(purchesedPlayer);
 
   return <div className="max-w-[1200px] mx-auto mb-4">

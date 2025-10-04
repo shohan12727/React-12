@@ -4,7 +4,7 @@ const ToggleBtn = ({ toggleStatus, setToggleStatus }) => {
   const btns = ["All", "Pending", "Submitted", "Reviewed"];
 
   return (
-    <div className="container mx-auto text-right">
+    <div className="container mx-auto text-center">
       {btns.map((btn, index) => {
         return (
           <button
