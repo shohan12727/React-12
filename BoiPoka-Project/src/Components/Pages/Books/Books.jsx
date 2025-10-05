@@ -24,7 +24,7 @@ const Books = ({ data }) => {
       <Suspense fallback={<span>Loading.................</span>}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {data.map((singleBook) => (
-            <Book singleBook={singleBook}></Book>
+            <Book key={singleBook.bookId} singleBook={singleBook}></Book>
           ))}
         </div>
       </Suspense>

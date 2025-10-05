@@ -1,8 +1,12 @@
+import { NavLink } from "react-router";
+
 const Navbar = () => {
   const links = (
     <>
-      <li>Home</li>
-      <li>About</li>
+      <div className="flex gap-5">
+        <NavLink to="/"><li>Home</li></NavLink>
+     <NavLink to="/about"> <li>About</li></NavLink>
+      </div>
     </>
   );
 
