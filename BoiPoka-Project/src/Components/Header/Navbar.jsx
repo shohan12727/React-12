@@ -4,8 +4,17 @@ const Navbar = () => {
   const links = (
     <>
       <div className="flex gap-5">
-        <NavLink to="/"><li>Home</li></NavLink>
-     <NavLink to="/about"> <li>About</li></NavLink>
+        <NavLink to="/">
+          <li>Home</li>
+        </NavLink>
+        <NavLink to="/about">
+          {" "}
+          <li>About</li>
+        </NavLink>
+        <NavLink to="/readList">
+          {" "}
+          <li>ReadList</li>
+        </NavLink>
       </div>
     </>
   );
