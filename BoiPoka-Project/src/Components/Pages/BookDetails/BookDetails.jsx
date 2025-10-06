@@ -1,6 +1,6 @@
-import React from "react";
 import { useLoaderData, useParams } from "react-router";
 import { addTostoredDB } from "../../../Utilities/AddToDb";
+import Swal from "sweetalert2";
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -9,16 +9,16 @@ const BookDetails = () => {
   const singleBook = data.find((book) => book.bookId === bookId);
   const { bookName, image } = singleBook;
 
-
-  const handleMarksAsRead = id => {
+  const handleMarksAsRead = (id) => {
+     
     // store with id
     // where to store (local store)
-    // array or like a collection 
-    // if book already then show a alert 
+    // array or like a collection
+    // if book already then show a alert
     // if book not exist then push in the collection or in the array
-    addTostoredDB(id)
-  }
-
+    addTostoredDB(id);
+   
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 py-12 px-4">
@@ -50,11 +50,14 @@ const BookDetails = () => {
 
               {/* Buttons */}
               <div className="flex gap-4">
-                <button onClick={() => handleMarksAsRead(id)} className="flex-1 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-                 Mark as Read
+                <button
+                  onClick={() => handleMarksAsRead(id)}
+                  className="flex-1 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                >
+                  Mark as Read
                 </button>
                 <button className="flex-1 bg-white border-2 border-indigo-600 text-indigo-600 px-6 py-3 rounded-lg font-semibold hover:bg-indigo-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-                 Add to Wishlist
+                  Add to Wishlist
                 </button>
               </div>
             </div>

@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 const getStoredBook = () => {
   const storedBooksStr = localStorage.getItem("readList");
 
@@ -13,12 +15,13 @@ const addTostoredDB = (id) => {
   const storedBookData = getStoredBook();
 
   if (storedBookData.includes(id)) {
-    alert("Vai ei id already exist");
+    Swal.fire("Already Exist");
   } else {
     storedBookData.push(id);
     const data = JSON.stringify(storedBookData);
     localStorage.setItem("readList", data);
-    console.log(storedBookData);
+    Swal.fire("Added to wishList");
+    
   }
 };
 
