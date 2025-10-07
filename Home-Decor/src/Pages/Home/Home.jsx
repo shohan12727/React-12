@@ -2,7 +2,6 @@ import React from "react";
 import { Link, useLoaderData } from "react-router";
 import ProductCard from "../../Components/ProductCard/ProductCard";
 
-
 const Home = () => {
   const products = useLoaderData();
   const feturedProducts = products.slice(0, 6);
