@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router";
-import App from "../App";
 import Home from "../Pages/Home/Home";
 import Products from "../Pages/Products/Products";
 import Root from "../Layouts/Root";
@@ -12,9 +11,12 @@ const router = createBrowserRouter([
     path: "/",
     Component: Root,
     errorElement: <ErrorPage></ErrorPage>,
+
     children: [
       {
         index: true,
+        loader: () => fetch("/furnitureData.json"),
+        hydrateFallbackElement: <p>Loading............</p>,
         Component: Home,
       },
       {
@@ -22,13 +24,13 @@ const router = createBrowserRouter([
         Component: Products,
       },
       {
-        path: '/wishlist',
+        path: "/wishlist",
         Component: WishList,
       },
       {
-         path: '/productdetails',
-         Component: ProductDetails,
-      }
+        path: "/productdetails",
+        Component: ProductDetails,
+      },
     ],
   },
 ]);
