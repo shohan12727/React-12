@@ -4,17 +4,25 @@ import { useState } from "react";
 
 const Products = () => {
   const { products } = useProducts();
-//   const [search, setSearch] = useState('')
+  const [search, setSearch] = useState("");
+  const term = search.trim().toLowerCase();
+  const searchedProducts = term
+    ? products.filter((product) => product.name.toLowerCase().includes(term))
+    : products;
   return (
     <div>
       <div className="flex justify-between py-6">
         <h1 className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-200">
           All Products{" "}
-          <span className="text-sm text-white">({products.length})</span>
+          <span className="text-sm text-white">
+            ({searchedProducts.length} product found)
+          </span>
         </h1>
         <div className="relative w-full max-w-sm">
-            {/* search  */}
+          {/* search  */}
           <input
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
             type="search"
             placeholder="Search products..."
             aria-label="Search products"
@@ -23,7 +31,7 @@ const Products = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {products.map((product) => (
+        {searchedProducts.map((product) => (
           <ProductCard key={product.id} product={product}></ProductCard>
         ))}
       </div>
