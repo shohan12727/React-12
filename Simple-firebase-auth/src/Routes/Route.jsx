@@ -1,9 +1,21 @@
 import { createBrowserRouter } from "react-router";
-import App from "../App";
+import Root from "../Root/Root";
+import Home from "../Components/Home";
+import Login from "../Components/Login";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    Component: App,
+    Component: Root,
+    children: [
+        {
+            index: true,
+            Component: Home
+        },
+        {
+            path: '/login',
+            Component: Login
+        }
+    ]
   },
 ]);
