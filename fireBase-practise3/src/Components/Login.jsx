@@ -24,6 +24,9 @@ const Login = () => {
         console.log(result.user);
         const loggedInUser = result.user;
 
+
+
+          
         if (!loggedInUser.email) {
           if (loggedInUser.providerData) {
             const gitProvider = loggedInUser.providerData.find(
