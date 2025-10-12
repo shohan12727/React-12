@@ -7,18 +7,18 @@ def clear_screen():
 
 def display_lyrics():
     """Display lyrics word by word with smooth effects"""
-   
+       
     lyrics = [
-        "Main Ab Kyu Hosh Me Aata Nahi",
-        "Sukoon Yeh Dil Kyu Paata Nahi",
-        "Kyun Todun Khud Se Jo The Waade",
-        "Ab Ye Ishq Nibhana Nahi",
-        "Main Modun Tumse Jo Yeh Chehra",
-        "Dobara Nazar Milana Nahi",
-        "Yeh Duniya Jaane Mera Dard",
-        "Tujhe Yeh Nazar Kyun Aata Nahi"
-    ]
-    
+    "💔 Main Ab Kyu Hosh Me Aata Nahi",
+    "🌙 Sukoon Yeh Dil Kyu Paata Nahi",
+    "💭 Kyun Todun Khud Se Jo The Waade",
+    "🔥 Ab Ye Ishq Nibhana Nahi",
+    "🌧️  Main Modun Tumse Jo Yeh Chehra",
+    "😔 Dobara Nazar Milana Nahi",
+    "🌍 Yeh Duniya Jaane Mera Dard",
+    "💫 Tujhe Yeh Nazar Kyun Aata Nahi"
+]
+
    
     start_times = [
         0, 
@@ -27,8 +27,8 @@ def display_lyrics():
         6.7,  
         9,
         11.4,
-        14, 
-        16.4
+        13.6, 
+        16
     ]
     
   
@@ -52,7 +52,6 @@ def display_lyrics():
         print() 
     
     print("\n" + "=" * 50)
-    print("✨ End of lyrics ✨")
 
 if __name__ == "__main__":
     display_lyrics()
