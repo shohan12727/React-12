@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { auth } from "../Firebase/Firebase.config";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import { IoEyeOffSharp } from "react-icons/io5";
 import { FaEye } from "react-icons/fa";
+import { Link } from "react-router";
 const Register = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
@@ -12,7 +13,8 @@ const Register = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password);
+    const temrs = e.target.terms.checked;
+    console.log(email, password, temrs);
 
     // const passwordPatern = /^.{7}$ /;
 
@@ -29,6 +31,10 @@ const Register = () => {
       );
       return;
     }
+    if (!temrs) {
+      setError("Please accept our terms and condition");
+      return;
+    }
 
     // reset
     setError("");
@@ -39,6 +45,15 @@ const Register = () => {
         console.log(result);
         setSuccess(true);
         e.target.reset();
+
+
+        sendEmailVerification(result.user)
+        .then(() => {
+          alert('Please login to your email varify your email address')
+        })
+
+
+
       })
       .catch((err) => {
         console.log(err);
@@ -81,18 +96,17 @@ const Register = () => {
                     {showPassword ? <IoEyeOffSharp /> : <FaEye />}
                   </button>
                 </div>
-                <fieldset className="fieldset bg-base-100 border-base-300 rounded-box w-64 border p-4">
-                  <legend className="fieldset-legend">Login options</legend>
-                  <label className="label">
-                    <input type="checkbox" className="checkbox" />
-                    Accept all term and conditon
-                  </label>
-                </fieldset>
-                <div>
-                  <a className="link link-hover">Forgot password?</a>
-                </div>
-                <button className="btn btn-neutral mt-4">Register</button>
+
+                <label className="label">
+                  <input name="terms" type="checkbox" className="checkbox" />
+                  Accept all term and conditon
+                </label>
               </fieldset>
+              <div>
+                <a className="link link-hover">Forgot password?</a>
+              </div>
+              <button className="btn btn-neutral mt-4">Register</button>
+
               {error && <p className="text-sm text-rose-600">{error}</p>}
               {success && (
                 <p className="text-sm text-green-500">
@@ -100,6 +114,12 @@ const Register = () => {
                 </p>
               )}
             </form>
+            <p>
+              Already have an account?{" "}
+              <Link className="underline text-blue-600" to="/login">
+                Login
+              </Link>
+            </p>
           </div>
         </div>
       </div>
