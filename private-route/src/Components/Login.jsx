@@ -1,17 +1,19 @@
-import React, { use } from "react";
+import React, { useContext } from "react";
 import { AuthContext } from "../Contexts/AuthContext/AuthContext";
 
 const Login = () => {
-  const { signInUser } = use(AuthContext);
+  const { signInUser } = useContext(AuthContext);
 
   const handleLoginIn = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     console.log(email, password);
+
     signInUser(email, password)
       .then((res) => {
         console.log(res.user);
+        e.target.reset();
       })
       .catch((err) => {
         console.log(err);
@@ -24,7 +26,6 @@ const Login = () => {
         <h1 className="text-5xl font-bold">Login now!</h1>
         <form onSubmit={handleLoginIn}>
           <fieldset className="fieldset">
-            {/* email  */}
             <label className="label">Email</label>
             <input
               name="email"
@@ -32,7 +33,6 @@ const Login = () => {
               className="input"
               placeholder="Email"
             />
-            {/* password  */}
             <label className="label">Password</label>
             <input
               name="password"
