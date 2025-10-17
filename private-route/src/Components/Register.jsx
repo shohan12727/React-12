@@ -1,34 +1,48 @@
+import { use } from "react";
 import { Link } from "react-router";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../Firebase/firebase.config";
-
+import { AuthContext } from "../Contexts/AuthContext/AuthContext";
+// import { createUserWithEmailAndPassword } from "firebase/auth";
+// import { auth } from "../Firebase/firebase.config";
 
 const Register = () => {
+  const { createUser } = use(AuthContext);
 
-
-  const handleSubmit = (e) => {
+  const handleRegister = (e) => {
     e.preventDefault();
-    const name = e.target.name.value;
     const email = e.target.email.value;
-    const password = e.target.password.value;
-
-    console.log(name, email, password);
-
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((res) => {
-        console.log(res.user);
+    const password = e.target.email.value;
+    createUser(email, password)
+      .then((result) => {
+        console.log(result);
       })
-      .then((err) => {
+      .catch((err) => {
         console.log(err);
       });
   };
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const name = e.target.name.value;
+  //   const email = e.target.email.value;
+  //   const password = e.target.password.value;
+
+  //   console.log(name, email, password);
+
+  //   createUserWithEmailAndPassword(auth, email, password)
+  //     .then((res) => {
+  //       console.log(res.user);
+  //     })
+  //     .then((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   return (
     <>
       <div className="card bg-base-100 w-full mx-auto max-w-sm shrink-0 shadow-2xl my-10">
         <div className="card-body">
           <h1 className="text-5xl font-bold">Please Login in now!</h1>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleRegister}>
             <fieldset className="fieldset">
               {/* name field  */}
               <label className="label">Name</label>
