@@ -38,6 +38,7 @@ const Navbar = () => {
           Login
         </NavLink>
       </li>
+        <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
       {
         user && <>
              <li>
@@ -49,7 +50,7 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li><NavLink to='/profile'>Profile</NavLink></li>
-      <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
+    
         </>
       }
     </>
