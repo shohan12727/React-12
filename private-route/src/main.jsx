@@ -1,4 +1,4 @@
-import {  StrictMode } from "react";
+import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter } from "react-router";
@@ -8,9 +8,11 @@ import Home from "./Components/Home.jsx";
 import Login from "./Components/Login.jsx";
 import Register from "./Components/Register.jsx";
 import AuthProvider from "./Contexts/AuthContext/AuthProvider.jsx";
+
+import PrivateRoute from "./Route/PrivateRoute.jsx";
 import Order from "./Components/Order.jsx";
-
-
+import Profile from "./Components/Profile.jsx";
+import DashBoard from "./Components/DashBoard.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,8 +32,26 @@ const router = createBrowserRouter([
         Component: Register,
       },
       {
-        path: '/order',
-        Component: Order
+        path: "/orders",
+        element: (
+          <PrivateRoute>
+            <Order></Order>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/profile",
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/dashboard',
+        element: <PrivateRoute>
+          <DashBoard></DashBoard>
+        </PrivateRoute>
       }
     ],
   },
@@ -39,11 +59,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-   
-  <AuthProvider>
-     <RouterProvider router={router} />
-  </AuthProvider>
-
- 
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>
 );

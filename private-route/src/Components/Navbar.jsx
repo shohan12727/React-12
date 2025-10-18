@@ -42,12 +42,14 @@ const Navbar = () => {
         user && <>
              <li>
         <NavLink
-          to="/order"
+          to="/orders"
           className="px-4 py-2 rounded-md font-semibold text-gray-700 hover:text-white hover:bg-[#002855] transition-colors duration-300 active:bg-[#002855] active:text-white"
         >
           Order
         </NavLink>
       </li>
+      <li><NavLink to='/profile'>Profile</NavLink></li>
+      <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
         </>
       }
     </>
