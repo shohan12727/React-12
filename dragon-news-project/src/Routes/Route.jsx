@@ -14,7 +14,7 @@ export const router = createBrowserRouter([
             Component: Home
         },
         {
-            path: '/cateory/:id',
+            path: '/category/:id',
             Component: CategoryNews
         }
     ]
