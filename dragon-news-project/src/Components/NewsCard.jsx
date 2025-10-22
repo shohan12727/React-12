@@ -1,5 +1,6 @@
 import React from "react";
 import { Bookmark, Share2, Star, Eye } from "lucide-react";
+import { Link } from "react-router";
 
 const NewsCard = ({ news }) => {
   const published = new Date(news.author.published_date)
@@ -61,9 +62,9 @@ const NewsCard = ({ news }) => {
           {news.details}
         </p>
 
-        <button className="text-orange-500 font-semibold hover:underline">
+        <Link to={`/news-details/${news.id}`} className="text-orange-500 font-semibold hover:underline">
           Read More
-        </button>
+        </Link>
       </div>
 
       {/* Footer: rating & views */}
