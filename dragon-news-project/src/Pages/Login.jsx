@@ -1,28 +1,29 @@
-import React, { use } from "react";
-import { Link } from "react-router";
+import React, { use, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
-
- const {logIn} = use(AuthContext);
-
+  const { logIn } = use(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [error, setError] = useState("");
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     console.log(email, password);
     logIn(email, password)
-     .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    console.log(user)
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode, errorMessage)
-  });
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+        navigate(`${location.state ? location.state : "/"}`);
+        // ...
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setError(errorMessage);
+      });
   };
 
   return (
@@ -52,6 +53,7 @@ const Login = () => {
             {/* <div>
               <a className="link link-hover">Forgot password?</a>
             </div> */}
+            {error && <p className="text-sm text-red-500">{error}</p>}
             <button type="submit" className="btn btn-neutral mt-4">
               Login
             </button>
