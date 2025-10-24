@@ -4,8 +4,12 @@ import LatestNews from "../Components/LatestNews";
 import Navbar from "../Components/Navbar";
 import LeftAside from "../Components/HomeLayout/LeftAside";
 import RightAside from "../Components/HomeLayout/RightAside";
+import LoadingPage from "../Components/Loading";
 
 const Root = () => {
+  // const items = useNavigate();
+  // console.log(items);
+  
   return (
     <div>
       <header>
@@ -22,7 +26,12 @@ const Root = () => {
           <LeftAside></LeftAside>
         </aside>
         <section className="main col-span-6">
-          <Outlet></Outlet>
+          {/* {
+            (state = "loading" ? (
+              <LoadingPage></LoadingPage>
+            ) : ( */}
+              <Outlet></Outlet>
+          
         </section>
         <aside className="col-span-3 sticky top-0 h-fit">
           <RightAside></RightAside>

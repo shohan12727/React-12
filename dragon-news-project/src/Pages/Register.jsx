@@ -17,7 +17,7 @@ const Register = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, photo, email, password);
+    // console.log(name, photo, email, password);
     if (name.length < 5) {
       setNameError("length should be more than 5 character");
     } else {
@@ -34,7 +34,7 @@ const Register = () => {
           })
           .catch((error) => {
             // An error occurred
-            console.log(error);
+            // console.log(error);
             // ...
             setUser(user);
           });
