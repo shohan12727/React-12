@@ -60,7 +60,7 @@ const Login = () => {
           </fieldset>
           <p className="text-center font-semibold">
             Dont’t Have An Account ?{" "}
-            <Link to={`/auth/register`} className="text-secondary underlineF">
+            <Link to={`/auth/register`} className="text-secondary underline">
               Register
             </Link>
           </p>
