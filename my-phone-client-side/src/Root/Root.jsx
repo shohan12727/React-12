@@ -4,8 +4,15 @@ import { Outlet } from 'react-router';
 
 const Root = () => {
     return (
-        <div>
-            <Home></Home>
+        <div style={
+            {
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+            }
+        }>
+            {/* <Home></Home> */}
+
             <Outlet></Outlet>
         </div>
     );
