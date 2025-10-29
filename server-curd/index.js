@@ -27,18 +27,26 @@ app.get("/", (req, res) => {
   res.send("Simple curd operation");
 });
 
-// MongoBD 
+// MongoBD
 async function run() {
   try {
-    // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
-    // Send a ping to confirm a successful connection
+
+    const usersDB = client.db("usersDB");
+    const usersCollection = usersDB.collection("usersCollection");
+
+    app.post("/users", async (req, res) => {
+      const newUser = req.body;
+      console.log("hitting the users post api", newUser);
+      const result = await usersCollection.insertOne(newUser);
+      res.send(result);
+    });
+
     await client.db("admin").command({ ping: 1 });
     console.log(
       "Pinged your deployment. You successfully connected to MongoDB!"
     );
   } finally {
-    // Ensures that the client will close when you finish/error
     // await client.close();
   }
 }
