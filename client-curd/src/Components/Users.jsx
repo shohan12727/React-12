@@ -7,7 +7,7 @@ const Users = () => {
   const initialUsers = use(userPromise);
   const [users, setUsers] = useState(initialUsers);
 
-  const handleSubmit = (e) => {
+  const handleAddUser = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
@@ -32,9 +32,26 @@ const Users = () => {
       });
   };
 
+  const handleDeleteUser = (id) => {
+    console.log("deleted", id);
+    fetch(`http://localhost:3000/users/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("after delte", data);
+        if (data.deletedCount) {
+          alert("Delete successfully");
+          const remaining = users.filter((user) => user._id !== id);
+          setUsers(remaining);
+        }
+      });
+  };
+
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <h3>Total User {users.length}</h3>
+      <form onSubmit={handleAddUser}>
         <input type="email" name="email" placeholder="Enter your email" />
         <br />
         <input
@@ -50,7 +67,7 @@ const Users = () => {
       <p>-------------------------</p>
       <div>
         {users.map((user) => (
-          <>
+          <div key={user._id}>
             <div
               style={{
                 border: "2px solid green",
@@ -61,8 +78,10 @@ const Users = () => {
             >
               <p>Email: {user.email} </p>
               <p>Password: {user.password}</p>
+              <button onClick={() => handleDeleteUser(user._id)}>X</button>
+              <Link to={`/users/${user._id}`}>Details</Link>
             </div>
-          </>
+          </div>
         ))}
       </div>
     </div>

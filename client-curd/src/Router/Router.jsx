@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router";
 import Root from "../Root/Root";
 import Home from "../Components/Home";
 import Users from "../Components/Users";
+import UserDetail from "../Components/UserDetail";
 
 export const router = createBrowserRouter([
   {
@@ -15,7 +16,12 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: '/users',
-    Component: Users
-  }
+    path: "/users",
+    Component: Users,
+  },
+  {
+    path: "/users/:id",
+    loader: ({ params }) => fetch(`http://localhost:3000/users/${params.id}`),
+    Component: UserDetail,
+  },
 ]);
