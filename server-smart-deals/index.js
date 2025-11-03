@@ -33,7 +33,12 @@ async function run() {
     );
 
     app.get("/products", async (req, res) => {
+      //   const projectFiels = { title: 1 };
       const cursor = smartDeals_collection.find();
+      // .sort({ price_min: -1 })
+      // .skip(2)
+      // .limit(3)
+      // .project(projectFiels);
       const result = await cursor.toArray();
       res.send(result);
     });
