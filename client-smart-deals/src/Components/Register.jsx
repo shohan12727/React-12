@@ -5,12 +5,29 @@ const Register = () => {
   const { signInWithGoogle } = use(AuthContext);
 
   const handleSignIn = () => {
-    console.log("clickes");
     signInWithGoogle()
       .then((result) => {
-        console.log(result);
+        const newUser = {
+          name: result.user.displayName,
+          email: result.user.email,
+          image: result.user.photoURL,
+        };
+        // create user in database
+
+        fetch("http://localhost:3000/users/", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(newUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log("data after save in database", data);
+          });
+        console.log(result.user);
       })
-      .then((err) => {
+      .catch((err) => {
         console.log(err);
       });
   };
