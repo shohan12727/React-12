@@ -26,7 +26,6 @@ app.get("/", (req, res) => {
 async function run() {
   try {
     await client.connect();
-
     const smartDealsDB = client.db("smart_deals");
     const smartDeals_collection = smartDealsDB.collection(
       "smart_deals_collection"
@@ -34,7 +33,7 @@ async function run() {
     const bidsCollection = smartDealsDB.collection("bids");
     const userCollection = smartDealsDB.collection("users");
 
-    // users api
+    // USERS APIS
     app.post("/users", async (req, res) => {
       const newUsers = req.body;
       const email = req.body.email;
@@ -42,15 +41,16 @@ async function run() {
       const existingEmail = await userCollection.findOne(query);
 
       if (existingEmail) {
-        res.send({message: "user already exit. do not need to log in again"});
+        res.send({ message: "user already exit. do not need to log in again" });
       } else {
         const result = await userCollection.insertOne(newUsers);
         res.send(result);
       }
     });
 
+    // PRODUCTS APIS
+
     app.get("/products", async (req, res) => {
-      //   const projectFiels = { title: 1 };
       console.log(req.query);
       const email = req.query.email;
       const query = {};
@@ -59,18 +59,23 @@ async function run() {
       }
 
       const cursor = smartDeals_collection.find(query);
-      // .sort({ price_min: -1 })
-      // .skip(2)
-      // .limit(3)
-      // .project(projectFiels);
       const result = await cursor.toArray();
       res.send(result);
     });
 
     app.get("/products/:id", async (req, res) => {
       const id = req.params.id;
-      const query = { _id: new ObjectId(id) };
+      const query = { _id: id };
       const result = await smartDeals_collection.findOne(query);
+      res.send(result);
+    });
+
+    app.get("/latest-products", async (req, res) => {
+      const cursor = smartDeals_collection
+        .find()
+        .sort({ created_at: -1 })
+        .limit(6);
+      const result = await cursor.toArray();
       res.send(result);
     });
 
@@ -101,7 +106,7 @@ async function run() {
       res.send(result);
     });
 
-    // bids related api
+    // BIDS APIS
 
     app.get("/bids", async (req, res) => {
       const email = req.query.buyer_email;
@@ -113,6 +118,14 @@ async function run() {
       const result = await cursor.toArray();
       res.send(result);
     });
+
+    app.get("/products/bids/:productId", async (req, res) => {
+      const productId = req.params.productId;
+      const query = {product: productId};
+      const cursor= bidsCollection.find(query).sort({bid_price: -1})
+      const result = await cursor.toArray();
+      res.send(result)
+    })
 
     app.get("/bids/:id", async (req, res) => {
       const id = req.params.id;
