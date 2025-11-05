@@ -1,11 +1,23 @@
 @import "tailwindcss";
+
 @plugin "daisyui" {
   themes: light --default, dark --prefersdark;
-  themes: light --default;
 }
+
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: blue;
+  --color-primary: #632ee3;
   --color-secondary: teal;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #632ee3 0%, #9f62f2 100%) !important;
+  border: none;
+  color: white;
+  transition: all 0.3s ease;
+}
+.btn-primary:hover {
+  background: linear-gradient(90deg, #9f62f2 0%, #632ee3 100%) !important;
+  opacity: 0.95;
 }

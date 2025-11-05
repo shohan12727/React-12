@@ -75,7 +75,7 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        {user ? <a onClick={handleSignOut} className="btn">Sign Out</a> : <Link to='/register'>Log In</Link>}
+        {user ? <a onClick={handleSignOut} className="btn btn-primary">Sign Out</a> : <Link to='/register'>Log In</Link>}
       </div>
     </div>
   );

@@ -14,7 +14,7 @@ const Register = () => {
         };
         // create user in database
 
-        fetch("http://localhost:3000/users/", {
+        fetch("http://localhost:3000/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -79,7 +79,7 @@ const Register = () => {
                   ></path>
                 </g>
               </svg>
-              Signin with Google
+              SignIn with Google
             </button>
           </div>
         </div>
