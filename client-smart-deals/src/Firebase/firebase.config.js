@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD8UMxBZGYCiJfzEFz0NY8dXagvnVfGFSw",
-  authDomain: "smart-deals-de0a2.firebaseapp.com",
-  projectId: "smart-deals-de0a2",
-  storageBucket: "smart-deals-de0a2.firebasestorage.app",
-  messagingSenderId: "774714656585",
-  appId: "1:774714656585:web:cc1d3cb95ca16cd19b3c98",
-  measurementId: "G-EHQ9GGRWTR",
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
+  measurementId: import.meta.env.VITE_MEASUREMENTID,
 };
 
 const app = initializeApp(firebaseConfig);
